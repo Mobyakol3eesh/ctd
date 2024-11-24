@@ -1,0 +1,20 @@
+.container {
+    display: flex;                     // Use flexbox for centering
+    justify-content: center;           // Center horizontally
+    align-items: center;
+    flex-direction: column;               // Center vertically
+    min-height: 100vh;                 // Full viewport height
+}
+
+.form-header {
+    text-align: center;                // Center text in header
+    margin-bottom: 1rem;               // Space between header and form
+}
+
+.form {
+    background-color: #f8f9fa;         // Light background for the form
+    padding: 2rem;      
+    width: 40%;                  // Padding inside the form
+    border-radius: 0.5rem;             // Rounded corners
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); // Subtle shadow effect
+}

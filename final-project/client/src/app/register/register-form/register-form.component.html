@@ -1,0 +1,57 @@
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <div class="name">
+        <label for="name">Enter Your Name</label>
+        <input class="form-control" placeholder="name" type="text" #nameView="ngModel" [(ngModel)]="user.name" name="name" required pattern="^[A-Za-zÀ-ÿ '-]+$"/>
+        @if(nameView.touched) {
+            @if(nameView.errors?.['required']) {
+                <div class="error alert alert-danger">
+                    <p>Name is required</p>
+                </div>
+            }
+            @if(nameView.errors?.['pattern']) {
+                <div class="error alert alert-danger">
+                    <p>Name Should Contain Only Letters</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="email">
+        <label for="email">Enter Your E-mail</label>
+        <input class="form-control"  placeholder="name@example.com" type="email" name="email" [(ngModel)]="user.email" #emailView="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
+        @if (emailView.touched) {
+            @if(emailView.errors?.['required']) {
+                <div class="error alert alert-danger">
+                    <p>Email is required</p>
+                </div>
+            }
+            @if(emailView.errors?.['pattern']) {
+                <div class="error alert alert-danger">
+                    <p>Email is not valid</p>
+                </div>
+            }
+        }
+    </div>
+    
+    <div class="password">
+        <label for="password">Enter Your Password</label>
+        <input class="form-control" placeholder="passowrd" type="password" #passwordView="ngModel" [(ngModel)]="user.password" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,32}$"/>
+        @if(passwordView.touched) {
+            @if(passwordView.errors?.['required']) {
+                <div class="error alert alert-danger">
+                    <p>Password is required</p>
+                </div>
+            }
+            @if(passwordView.errors?.['pattern']) {
+                <div class="error alert alert-danger">
+                    <p>Password Should Contain 1 Special Charcter , 1 Number, and 1 Capitalized Letter</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="login">
+        <p>
+            IF you have an account Please <span><a routerLink="/login">Login</a></span>
+        </p>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>

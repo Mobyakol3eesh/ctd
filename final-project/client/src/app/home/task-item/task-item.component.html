@@ -1,0 +1,9 @@
+<div class="text">
+<label class="task-label" #taskLabel>{{taskName}}</label>
+<label class="task-date">{{taksDate}}</label>
+</div>
+<div class="events">
+<input type="checkbox" [(ngModel)]="taskIsFulfiled" (change)="toggleStatus()">
+<button class="btn btn-danger" (click)="deleteTask(taskLabel)">Delete</button>
+<button class="btn btn-warning" (click)="updateTask(taskLabel)">Edit</button>
+</div>

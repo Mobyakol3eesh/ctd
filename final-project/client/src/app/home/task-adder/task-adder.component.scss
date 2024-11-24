@@ -1,0 +1,53 @@
+.input-group {
+    display: flex;
+    align-items: center; // Center the elements vertically
+    margin-bottom: 20px; // Space between the input group and other elements
+
+    .form-control {
+        flex: 1; // Allow input to take full width
+        padding: 12px; // Padding inside the input
+        border: 1px solid #ced4da; // Default border
+        border-radius: 5px; // Rounded corners
+        font-size: 16px; // Font size
+        transition: border-color 0.3s, box-shadow 0.3s; // Smooth transitions
+
+        // Focus state
+        &:focus {
+            border-color: #80bdff; // Change border color on focus
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); // Add shadow on focus
+            outline: none; // Remove default outline
+        }
+
+        // Placeholder styling
+        &::placeholder {
+            color: #a1a1a1; // Placeholder color
+        }
+    }
+
+    .btn-primary {
+        margin-left: 10px; // Space between input and button
+        padding: 12px 20px; // Padding inside the button
+        background-color: #007bff; // Button color
+        border: none; // Remove default border
+        border-radius: 5px; // Rounded corners
+        color: white; // Text color
+        font-size: 16px; // Font size
+        cursor: pointer; // Pointer cursor on hover
+        transition: background-color 0.3s, transform 0.2s; // Smooth transitions
+
+        // Hover state
+        &:hover {
+            background-color: #0056b3; // Darken button on hover
+        }
+
+        // Active state
+        &:active {
+            transform: scale(0.95); // Slightly shrink button on click
+        }
+
+        // Focus state
+        &:focus {
+            outline: none; // Remove default outline
+        }
+    }
+}

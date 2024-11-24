@@ -1,0 +1,41 @@
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="email">
+        <label for="email">Enter Your E-mail</label>
+        <input class="form-control"  placeholder="name@example.com" type="email" name="email" [(ngModel)]="user.email" #emailView="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
+        @if (emailView.touched) {
+            @if(emailView.errors?.['required']) {
+                <div class="error alert alert-danger" role="alert">
+                    <p>Email is required</p>
+                </div>
+            }
+            @if(emailView.errors?.['pattern']) {
+                <div class="alert alert-danger error">
+                    <p>Email is not valid</p>
+                </div>
+            }
+        }
+    </div>
+    
+    <div class="password">
+        <label for="password">Enter Your Password</label>
+        <input class="form-control" placeholder="passowrd" type="password" #passwordView="ngModel" [(ngModel)]="user.password" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,32}$"/>
+        @if(passwordView.touched) {
+            @if(passwordView.errors?.['required']) {
+                <div class="alert alert-danger error">
+                    <p>Password is required</p>
+                </div>
+            }
+            @if(passwordView.errors?.['pattern']) {
+                <div class="alert alert-danger error">
+                    <p>Password Invalid</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="register">
+        <p>
+            IF you Don't have an account Please <span><a routerLink="/register">Register</a></span>
+        </p>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+</form>
