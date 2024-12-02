@@ -1,6 +1,6 @@
 def how_big(numbers):
      numbers.sort()
-     return numbers[-1]
+     return (numbers[0], numbers[-1])
 
 
 def main():
@@ -8,7 +8,9 @@ def main():
     while(True):
           number = input("insert a number: ")
           if(number == "q"):
-              print(how_big(numbers))
+              smallest, largest = how_big(numbers)
+              print(f"largest number is {largest}\n"+
+                f"smallest number is {smallest}")
               break
           else:
               number = int(number)
