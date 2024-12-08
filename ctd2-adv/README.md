@@ -6,7 +6,7 @@ To install the required packages, run the following command:
 
 ```bash
 pip install -r requirements.txt
-
+'''
 
 This project requires FFmpeg for media processing. Please ensure you have FFmpeg installed and configured on your system before running the project.
 
